@@ -1,4 +1,4 @@
-contador = 11
+contador = 10
 while contador != 0:
     print (contador)
     contador -= 1
