@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Seja bem vindo</h1>
+    <input id="login" placeholder="digite seu email" type="text">
+    <input id="senha" placeholder="digite sua senha" type="text">
+    <button onclick="validador()"></button>
+    <h2 id="text">as</h2>
+
+    <script>
+    function validador() 
+    {
+    login=document.getElementById('login').value
+    senha=document.getElementById('senha').value
+    if (login =='mr.p' && senha=='123') 
+    {
+    document.getElementById('text').innerText='seja bem vindo'
+        
+    }
+    }
+    </script>
+</body>
+</html>
