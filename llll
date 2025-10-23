@@ -1,0 +1,54 @@
+create table aluno
+(
+id_aluno integer primary key autoincrement,
+nome text not null,
+rm integer not null,
+idade integer,
+data_nascimento date not null,
+cpf integer not null,
+telefone integer,
+responsavel text,
+responsavel_cpf integer,
+responsavel_telefone integer,
+
+
+curso text not null,
+curso_id integer not null,
+data_entrada date not null
+
+foreign key (curso) references curso(nome)
+foreign key (curso_id) references curso(id_curso)
+);
+
+create table professor
+(
+id_professor integer primary key autoincrement,
+nome text not null,
+rm integer not null
+idade integer,
+data_nascimento date not null,
+cpf integer not null,
+telefone integer,
+email text not null,
+
+
+materia text not null,
+id_materia integer not null,
+data_entrada date not null,
+salario real not null,
+
+foreign key (materia) references curso(nome)
+);
+
+create table curso
+(
+id_curso integer primary key autoincrement,
+nome text not null,
+periodo text not null,
+
+
+)
+
+
+insert into aluno (id_aluno, nome, rm, idade, data_nascimento, cpf, telefone, responsavel, responsavel_cpf, responsavel_telefone curso, data_entrada)
+('cleber', 123456, 12, 12/2/2004, 123456
