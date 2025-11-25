@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Cadastro de Alunos</title>
+</head>
+<body>
+
+    <h1>Cadastro de Alunos</h1>
+
+    <!-- FORMULÁRIO DE CADASTRO -->
+    <form action="{{ url_for('cadastro') }}" method="POST">
+        <label>Nome:</label>
+        <input type="text" name="nome" required>
+
+        <label>Idade:</label>
+        <input type="number" name="idade" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <hr>
+
+    <!-- TABELA DE ALUNOS -->
+    <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Ações</th>
+        </tr>
+
+        {% for aluno in alunos %}
+        <tr>
+            <td>{{ aluno[0] }}</td>
+            <td>{{ aluno[1] }}</td>
+            <td>{{ aluno[2] }}</td>
+
+            <td>
+                <!-- EDITAR -->
+                <a href="{{ url_for('editar', aluno_id=aluno[0]) }}">Editar</a>
+
+                <!-- EXCLUIR -->
+                <form action="{{ url_for('deletar', aluno_id=aluno[0]) }}" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
